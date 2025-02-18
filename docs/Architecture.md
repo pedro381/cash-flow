@@ -1,57 +1,50 @@
 # Arquitetura do Projeto
 
-## Visão Geral
-Este projeto foi desenvolvido para controlar o fluxo de caixa diário de um comerciante, registrando lançamentos (débito e crédito) e gerando um relatório consolidado do saldo diário. A solução foi projetada com foco em escalabilidade, resiliência, segurança e desempenho.
+## VisÃ£o Geral
+Este projeto foi desenvolvido para controlar o fluxo de caixa diÃ¡rio de um comerciante, registrando lanÃ§amentos (dÃ©bito e crÃ©dito) e gerando um relatÃ³rio consolidado do saldo diÃ¡rio. A soluÃ§Ã£o foi projetada com foco em escalabilidade, resiliÃªncia, seguranÃ§a e desempenho.
 
-## Arquitetura em Microsserviços
-A aplicação foi dividida em dois serviços principais:
-- **Transactions API:** Responsável pelo controle de lançamentos.
-- **Consolidation API:** Responsável por gerar e disponibilizar o relatório consolidado diário.
+## Arquitetura em MicrosserviÃ§os
+A aplicaÃ§Ã£o foi dividida em dois serviÃ§os principais:
+- **Transactions API:** ResponsÃ¡vel pelo controle de lanÃ§amentos.
+- **Consolidation API:** ResponsÃ¡vel por gerar e disponibilizar o relatÃ³rio consolidado diÃ¡rio.
 
-Cada serviço é composto por camadas bem definidas:
-- **Domain:** Contém as entidades e as regras de negócio.
-- **Application:** Implementa os casos de uso, orquestrando as operações do domínio.
-- **Infrastructure:** Responsável pelo acesso a dados, integração com bancos de dados e implementação de repositórios.
+Cada serviÃ§o Ã© composto por camadas bem definidas:
+- **Domain:** ContÃ©m as entidades e as regras de negÃ³cio.
+- **Application:** Implementa os casos de uso, orquestrando as operaÃ§Ãµes do domÃ­nio.
+- **Infrastructure:** ResponsÃ¡vel pelo acesso a dados, integraÃ§Ã£o com bancos de dados e implementaÃ§Ã£o de repositÃ³rios.
 
-## Padrões e Boas Práticas
-- **SOLID:** Aplicação dos princípios SOLID para garantir um código modular e de fácil manutenção.
-- **Repository Pattern:** Abstração do acesso a dados, facilitando a testabilidade e a evolução da aplicação.
-- **Dependency Injection:** Para reduzir o acoplamento entre componentes e facilitar a substituição de implementações.
+## PadrÃµes e Boas PrÃ¡ticas
+- **SOLID:** AplicaÃ§Ã£o dos princÃ­pios SOLID para garantir um cÃ³digo modular e de fÃ¡cil manutenÃ§Ã£o.
+- **Repository Pattern:** AbstraÃ§Ã£o do acesso a dados, facilitando a testabilidade e a evoluÃ§Ã£o da aplicaÃ§Ã£o.
+- **Dependency Injection:** Para reduzir o acoplamento entre componentes e facilitar a substituiÃ§Ã£o de implementaÃ§Ãµes.
 - **AutoMapper:** Simplifica o mapeamento entre entidades e DTOs.
-- **Testes Automatizados:** Utilização de xUnit e Moq para garantir a qualidade do código.
+- **Testes Automatizados:** UtilizaÃ§Ã£o de xUnit e Moq para garantir a qualidade do cÃ³digo.
 
-## Escalabilidade e Resiliência
+## Escalabilidade e ResiliÃªncia
 - **Escalabilidade Horizontal:** Cada API pode ser replicada independentemente para lidar com aumentos de carga.
-- **Balanceamento de Carga:** Implementação de balanceadores para distribuir as requisições entre instâncias.
-- **Cache:** Estratégias de cache (por exemplo, com Redis) para melhorar a performance.
-- **Failover e Redundância:** Monitoramento proativo e mecanismos de recuperação para garantir alta disponibilidade.
+- **Balanceamento de Carga:** ImplementaÃ§Ã£o de balanceadores para distribuir as requisiÃ§Ãµes entre instÃ¢ncias.
+- **Cache:** EstratÃ©gias de cache (por exemplo, com Redis) para melhorar a performance.
+- **Failover e RedundÃ¢ncia:** Monitoramento proativo e mecanismos de recuperaÃ§Ã£o para garantir alta disponibilidade.
 
 ## Diagramas Arquiteturais (Conceituais)
 - **Diagrama de Componentes:**
   ```
-  [Transactions API]       [Consolidation API]
-          |                        |
-  [Transactions Application]  [Consolidation Application]
-          |                        |
-     [Transactions Domain]     [Consolidation Domain]
-          |                        |
-   [Transactions Infrastructure] [Consolidation Infrastructure]
-          |                        |
-         [Banco de Dados]         [Banco de Dados]
+[Transactions API]            [Consolidation API]
+          |                            |
+[Transactions Application]    [Consolidation Application]
+          |                            |
+[Transactions Domain]         [Consolidation Domain]
+          |                            |
+[Transactions Infrastructure] [Consolidation Infrastructure]
+          |                            |
+[Banco de Dados]              [Banco de Dados]
   ```
-- **Diagrama de Sequência:** Demonstra o fluxo desde o lançamento de uma transação até sua consolidação e disponibilização do relatório.
-- **Diagrama de Implantação:** Ilustra a distribuição dos serviços em contêineres ou servidores, possibilitando escalabilidade horizontal.
+- **Diagrama de SequÃªncia:** Demonstra o fluxo desde o lanÃ§amento de uma transaÃ§Ã£o atÃ© sua consolidaÃ§Ã£o e disponibilizaÃ§Ã£o do relatÃ³rio.
+- **Diagrama de ImplantaÃ§Ã£o:** Ilustra a distribuiÃ§Ã£o dos serviÃ§os em contÃªineres ou servidores, possibilitando escalabilidade horizontal.
 
 ## Tecnologias Utilizadas
 - **Linguagem:** C#
 - **Framework:** ASP.NET Core (.NET 6 ou superior)
 - **ORM:** Entity Framework Core
 - **Testes:** xUnit, Moq
-- **Mensageria:** (Opcional) RabbitMQ
-- **Containerização:** (Opcional) Docker
-- **Segurança:** JWT, OAuth2 (para autenticação e autorização)
-```
-
----
-
-
+- **ContainerizaÃ§Ã£o:** (Opcional) Docker
