@@ -29,16 +29,17 @@ Cada serviço é composto por camadas bem definidas:
 ## Diagramas Arquiteturais (Conceituais)
 - **Diagrama de Componentes:**
   ```
-[Transactions API]            [Consolidation API]
-          |                            |
-[Transactions Application]    [Consolidation Application]
-          |                            |
-[Transactions Domain]         [Consolidation Domain]
-          |                            |
-[Transactions Infrastructure] [Consolidation Infrastructure]
-          |                            |
-[Banco de Dados]              [Banco de Dados]
+     [Transactions API]            [Consolidation API]
+          |                                 |
+     [Transactions Application]    [Consolidation Application]
+          |                                 |
+     [Transactions Domain]         [Consolidation Domain]
+          |                                 |
+     [Transactions Infrastructure] [Consolidation Infrastructure]
+          |                                 |
+                         [Banco de Dados]              
   ```
+
 - **Diagrama de Sequência:** Demonstra o fluxo desde o lançamento de uma transação até sua consolidação e disponibilização do relatório.
 - **Diagrama de Implantação:** Ilustra a distribuição dos serviços em contêineres ou servidores, possibilitando escalabilidade horizontal.
 
