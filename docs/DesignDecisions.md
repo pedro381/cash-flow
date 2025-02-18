@@ -1,29 +1,29 @@
 # Design do Projeto
 
-## Introdução
-Este documento detalha as escolhas de design e os fluxos de dados entre os componentes da solução, garantindo que os requisitos de negócio e não-funcionais sejam atendidos.
+## IntroduÃ§Ã£o
+Este documento detalha as escolhas de design e os fluxos de dados entre os componentes da soluÃ§Ã£o, garantindo que os requisitos de negÃ³cio e nÃ£o-funcionais sejam atendidos.
 
 ## Fluxo de Dados e Processos
-1. **Registro de Transações:**
-   - O comerciante envia uma requisição para a **Transactions API** com os dados do lançamento (débito ou crédito).
-   - A API valida e encaminha os dados para a camada de aplicação, que aplica as regras de negócio.
-   - A transação é persistida no banco de dados por meio do repositório na camada de infraestrutura.
+1. **Registro de TransaÃ§Ãµes:**
+   - O comerciante envia uma requisiÃ§Ã£o para a **Transactions API** com os dados do lanÃ§amento (dÃ©bito ou crÃ©dito).
+   - A API valida e encaminha os dados para a camada de aplicaÃ§Ã£o, que aplica as regras de negÃ³cio.
+   - A transaÃ§Ã£o Ã© persistida no banco de dados por meio do repositÃ³rio na camada de infraestrutura.
 
-2. **Consolidação Diária:**
-   - Em períodos definidos ou mediante requisição, a **Consolidation API** agrega os lançamentos do dia.
-   - A camada de aplicação consulta os dados e calcula o saldo consolidado.
-   - O relatório consolidado é disponibilizado através de um endpoint REST.
+2. **ConsolidaÃ§Ã£o DiÃ¡ria:**
+   - Em perÃ­odos definidos ou mediante requisiÃ§Ã£o, a **Consolidation API** agrega os lanÃ§amentos do dia.
+   - A camada de aplicaÃ§Ã£o consulta os dados e calcula o saldo consolidado.
+   - O relatÃ³rio consolidado Ã© disponibilizado atravÃ©s de um endpoint REST.
 
-## Componentes e Interações
+## Componentes e InteraÃ§Ãµes
 - **Transactions API:**
-  - **Controllers:** Expor endpoints REST para criação e consulta de transações.
-  - **Services:** Implementam a lógica de negócio e validam os dados.
+  - **Controllers:** Expor endpoints REST para criaÃ§Ã£o e consulta de transaÃ§Ãµes.
+  - **Services:** Implementam a lÃ³gica de negÃ³cio e validam os dados.
   - **Repositories:** Abstraem o acesso ao banco de dados, utilizando Entity Framework Core.
   
 - **Consolidation API:**
-  - **Controllers:** Expor endpoints REST para consulta do relatório consolidado.
-  - **Services:** Orquestram a consolidação dos dados e aplicam as regras de agregação.
-  - **Repositories:** Realizam o acesso aos dados necessários para a consolidação.
+  - **Controllers:** Expor endpoints REST para consulta do relatÃ³rio consolidado.
+  - **Services:** Orquestram a consolidaÃ§Ã£o dos dados e aplicam as regras de agregaÃ§Ã£o.
+  - **Repositories:** Realizam o acesso aos dados necessÃ¡rios para a consolidaÃ§Ã£o.
 
 ## Diagramas de Design
 - **Diagrama de Componentes:**
@@ -38,17 +38,14 @@ Este documento detalha as escolhas de design e os fluxos de dados entre os compo
   |             |               |
   ---------------------------------
   ```
-- **Diagrama de Sequência (Exemplo de Lançamento e Consolidação):**
-  1. O cliente envia uma requisição para registrar uma transação.
-  2. A Transactions API processa e armazena a transação.
-  3. Ao final do dia, a Consolidation API é acionada para agrupar as transações do período.
-  4. O resultado é retornado ao cliente mediante requisição.
+- **Diagrama de SequÃªncia (Exemplo de LanÃ§amento e ConsolidaÃ§Ã£o):**
+  1. O cliente envia uma requisiÃ§Ã£o para registrar uma transaÃ§Ã£o.
+  2. A Transactions API processa e armazena a transaÃ§Ã£o.
+  3. Ao final do dia, a Consolidation API Ã© acionada para agrupar as transaÃ§Ãµes do perÃ­odo.
+  4. O resultado Ã© retornado ao cliente mediante requisiÃ§Ã£o.
 
-## Padrões e Práticas de Design
-- **Separation of Concerns:** Cada camada é responsável por uma parte específica da aplicação (domínio, aplicação, infraestrutura).
-- **Reusabilidade:** Componentes comuns, como validação e mapeamento (AutoMapper), são centralizados para facilitar a manutenção.
-- **Testabilidade:** A estrutura permite a criação de testes unitários e de integração, garantindo a qualidade e robustez do sistema.
-- **Segurança:** Implementação de mecanismos de autenticação, autorização e criptografia para proteger os dados e a comunicação.
-```
-
----
+## PadrÃµes e PrÃ¡ticas de Design
+- **Separation of Concerns:** Cada camada Ã© responsÃ¡vel por uma parte especÃ­fica da aplicaÃ§Ã£o (domÃ­nio, aplicaÃ§Ã£o, infraestrutura).
+- **Reusabilidade:** Componentes comuns, como validaÃ§Ã£o e mapeamento (AutoMapper), sÃ£o centralizados para facilitar a manutenÃ§Ã£o.
+- **Testabilidade:** A estrutura permite a criaÃ§Ã£o de testes unitÃ¡rios e de integraÃ§Ã£o, garantindo a qualidade e robustez do sistema.
+- **SeguranÃ§a:** ImplementaÃ§Ã£o de mecanismos de autenticaÃ§Ã£o, autorizaÃ§Ã£o e criptografia para proteger os dados e a comunicaÃ§Ã£o.
