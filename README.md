@@ -1,49 +1,49 @@
 
-# Controle de Fluxo de Caixa e Consolidação Diária
+# Controle de Fluxo de Caixa e ConsolidaÃ§Ã£o DiÃ¡ria
 
-## Descrição do Projeto
-Este projeto tem como objetivo fornecer uma solução escalável e resiliente para que um comerciante controle seu fluxo de caixa diário. A aplicação registra lançamentos de débitos e créditos e gera um relatório consolidado do saldo diário. A arquitetura adota microsserviços para isolar as responsabilidades e facilitar a escalabilidade e manutenção.
+## DescriÃ§Ã£o do Projeto
+Este projeto tem como objetivo fornecer uma soluÃ§Ã£o escalÃ¡vel e resiliente para que um comerciante controle seu fluxo de caixa diÃ¡rio. A aplicaÃ§Ã£o registra lanÃ§amentos de dÃ©bitos e crÃ©ditos e gera um relatÃ³rio consolidado do saldo diÃ¡rio. A arquitetura adota microsserviÃ§os para isolar as responsabilidades e facilitar a escalabilidade e manutenÃ§Ã£o.
 
 ## Funcionalidades
-- **Registro de Transações:** Criação, consulta, atualização e deleção de lançamentos (débito e crédito).
-- **Consolidação Diária:** Agregação dos lançamentos para calcular o saldo diário consolidado.
+- **Registro de TransaÃ§Ãµes:** CriaÃ§Ã£o, consulta, atualizaÃ§Ã£o e deleÃ§Ã£o de lanÃ§amentos (dÃ©bito e crÃ©dito).
+- **ConsolidaÃ§Ã£o DiÃ¡ria:** AgregaÃ§Ã£o dos lanÃ§amentos para calcular o saldo diÃ¡rio consolidado.
 - **Escalabilidade:** Projeto preparado para crescimento horizontal e alta disponibilidade.
-- **Resiliência:** Implementação de mecanismos de failover e redundância.
-- **Segurança:** Autenticação, autorização e criptografia para proteção dos dados.
+- **ResiliÃªncia:** ImplementaÃ§Ã£o de mecanismos de failover e redundÃ¢ncia.
+- **SeguranÃ§a:** AutenticaÃ§Ã£o, autorizaÃ§Ã£o e criptografia para proteÃ§Ã£o dos dados.
 
 ## Estrutura do Projeto
 - **src/**  
-  Contém os projetos das APIs e as camadas de Application, Domain e Infrastructure para os módulos de Transações e Consolidação.
+  ContÃ©m os projetos das APIs e as camadas de Application, Domain e Infrastructure para os mÃ³dulos de TransaÃ§Ãµes e ConsolidaÃ§Ã£o.
   
 - **tests/**  
-  Testes unitários e de integração para garantir a qualidade e confiabilidade do sistema.
+  Testes unitÃ¡rios e de integraÃ§Ã£o para garantir a qualidade e confiabilidade do sistema.
 
 - **docs/**  
-  Documentação detalhada do projeto, incluindo decisões arquiteturais e design.
+  DocumentaÃ§Ã£o detalhada do projeto, incluindo decisÃµes arquiteturais e design.
 
 ## Tecnologias Utilizadas
 - **Linguagem:** C#
 - **Framework:** ASP.NET Core (.NET 6 ou superior)
 - **ORM:** Entity Framework Core
 - **Testes:** xUnit, Moq
-- **Containerização (opcional):** Docker
+- **ContainerizaÃ§Ã£o (opcional):** Docker
 
-## Como Executar a Aplicação
+## Como Executar a AplicaÃ§Ã£o
 
-### Pré-requisitos
-- [.NET 6 SDK](https://dotnet.microsoft.com/download)
-- Banco de Dados (SQL Server, PostgreSQL ou outro compatível)
-- (Opcional) Docker, para execução em contêineres
+### PrÃ©-requisitos
+- [.NET 8 SDK](https://dotnet.microsoft.com/download)
+- Banco de Dados (SQL Server, PostgreSQL ou outro compatÃ­vel)
+- (Opcional) Docker, para execuÃ§Ã£o em contÃªineres
 
-### Passos para Execução
-1. **Clonar o Repositório:**
+### Passos para ExecuÃ§Ã£o
+1. **Clonar o RepositÃ³rio:**
    ```bash
-   git clone https://github.com/SEU_USUARIO/ControleFluxoCaixa.git
+   git clone https://github.com/pedro381/cash-flow.git
    cd ControleFluxoCaixa
    ```
 
-2. **Configurar as Strings de Conexão:**
-   - Atualize os arquivos `appsettings.json` de cada API com a string de conexão do seu banco de dados.
+2. **Configurar as Strings de ConexÃ£o:**
+   - Atualize os arquivos `appsettings.json` de cada API com a string de conexÃ£o do seu banco de dados.
 
 3. **Executar as Migrations (caso use EF Core):**
    ```bash
@@ -54,11 +54,11 @@ Este projeto tem como objetivo fornecer uma solução escalável e resiliente para 
    ```
 
 4. **Executar as APIs:**
-   - Para a API de Transações:
+   - Para a API de TransaÃ§Ãµes:
      ```bash
      dotnet run --project src/Transactions.Api
      ```
-   - Para a API de Consolidação:
+   - Para a API de ConsolidaÃ§Ã£o:
      ```bash
      dotnet run --project src/Consolidation.Api
      ```
@@ -68,16 +68,13 @@ Este projeto tem como objetivo fornecer uma solução escalável e resiliente para 
    dotnet test
    ```
 
-## Documentação
-- **Arquitetura:** Consulte [docs/architecture.md](docs/architecture.md) para detalhes sobre as decisões arquiteturais e diagramas.
-- **Design:** Consulte [docs/design.md](docs/design.md) para informações detalhadas sobre o design e os fluxos de dados.
+## DocumentaÃ§Ã£o
+- **Arquitetura:** Consulte [docs/architecture.md](docs/Architecture.md) para detalhes sobre as decisÃµes arquiteturais e diagramas.
+- **Design:** Consulte [docs/design.md](docs/DesignDecisions.md) para informaÃ§Ãµes detalhadas sobre o design e os fluxos de dados.
 
-## Considerações Finais
-Este projeto foi desenvolvido aplicando boas práticas de desenvolvimento, padrões arquiteturais e de design, garantindo uma solução escalável, resiliente e segura. Evoluções futuras podem incluir integração com mensageria, melhorias em segurança e otimizações de desempenho.
+## ConsideraÃ§Ãµes Finais
+Este projeto foi desenvolvido aplicando boas prÃ¡ticas de desenvolvimento, padrÃµes arquiteturais e de design, garantindo uma soluÃ§Ã£o escalÃ¡vel, resiliente e segura. EvoluÃ§Ãµes futuras podem incluir integraÃ§Ã£o com mensageria, melhorias em seguranÃ§a e otimizaÃ§Ãµes de desempenho.
 
 ---
 
 *Desenvolvido por Pedro Souza.*
-```
-
----
